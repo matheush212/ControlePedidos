@@ -1,0 +1,38 @@
+/*********************************************/
+html, body{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: whitesmoke;
+    max-width: 1920px;
+    min-width: 250px;
+}
+/*********************************************/
+
+
+
+/*********************************************/
+.logoMeitech{
+    color: whitesmoke;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 0.5%;
+    float: right; 
+}
+/*********************************************/
+
+
+
+/*********************************************/
+.logoSimbolo{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 85%;
+    margin-right: 0.5%;
+    float: right; 
+}
+/*********************************************/

@@ -1,0 +1,19 @@
+@media only screen and (width: 1920px)
+{
+    #login{top: 30%; left: 50%; width: 30em; height: 18em; margin-top: -9em; margin-left: -14.5em;}
+    #userLogin, #userPassword{font-size: 110%;}
+    #listboxCEP{height: 60%;}
+    #WarningsOK{margin-top: 33%;font-size: 110%;}
+    #lstCEPNumeroPedido, #lstCEPDataPrevista{font-size: 110%;}
+    #title_warnig{margin-left: 48%;}
+    #lblInfoPedidos{font-size: 110%;}
+    #dropbtn {width: 45px; height: 45px; padding-top: 0.2%; font-size: 140%}
+    .dropup-content {width: 10%; top: 10.8%; margin-left: 79.5%;}
+    .buttonsClass{font-size: 120%; height: 93%;}
+    #SeeAll, #SaveAndSend{font-size: 120%;}
+    .lblEquipmentData, .lblItemAddContent, .txtItemContent, .txtItemAddContent{font-size: 120%;}
+    #DataEnvio, #DataPrevistaEntrega, #DataRealEntrega{font-size: 130%;}
+    .copyright{font-size: 120%;}
+    #title_sheet_control{font-size: 110%; margin-left: 47%;}
+    td, tr, th{font-size: 120%; font-weight: bold;}
+}

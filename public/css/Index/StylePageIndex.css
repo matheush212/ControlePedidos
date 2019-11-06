@@ -1,0 +1,122 @@
+/*********************************************/
+body{
+  background-color: #e2e2e2;
+}
+/*********************************************/
+
+
+
+/*********************************************/
+#login{
+  background-color: #0B274F;
+  position:fixed;
+  top: 33%;
+  left: 50%;
+  width: 25em;
+  height: 14em;
+  margin-top: -9em; /*set to a negative number 1/2 of your height*/
+  margin-left: -12.5em; /*set to a negative number 1/2 of your width*/
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 4%;
+}
+/*********************************************/
+
+
+/*********************************************/
+#userLogin{
+  margin-top: 4%;
+  margin-left: 5%;
+  width: 90%;
+  height: 18%;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 8%;
+  text-align: center;
+  font-size: 100%;
+  overflow: hidden;
+  outline: none;
+}
+/*********************************************/
+
+
+/*********************************************/
+#userPassword{
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 90%;
+  height: 18%;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 8%;
+  text-align: center;
+  font-size: 100%;
+  overflow: hidden;
+  outline: none;
+}
+/*********************************************/
+
+
+/*********************************************/
+#submit{
+  width: 90%;
+  height: 27%;
+  margin-top: 6%;
+  margin-left: 5%;
+  font-weight: bold;
+  font-family: Tahoma;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  font-size: 120%;
+  background-color: #0B274F;
+  border: none;
+  border-radius: 5%;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 3px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-color: rgb(3, 23, 51);
+  float: left;
+}
+
+#submit:hover {background-color: #0B274F}
+
+#submit:active {
+  background-color: #0B274F;
+  transform: translateY(5px);
+}
+/*********************************************/
+
+
+/*********************************************/
+.dvRodape{
+  font-family: Arial;
+  text-align: center;
+  color:  whitesmoke;
+  font-size: 70%;
+  position: absolute;
+  background-color: #666;
+  height: 4%;
+  width: 100%;
+  z-index: 1;
+  bottom: 0px; 
+}
+/*********************************************/
+
+
+
+/*********************************************/
+.copyright{
+  width: 80%;
+  height: 5%;
+  color: black;
+  font-size: 100%;
+  margin-top: 0.6%;
+  margin-left: 9%;
+  text-align: center;
+}
+/*********************************************/

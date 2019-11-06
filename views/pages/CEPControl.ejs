@@ -1,0 +1,90 @@
+<!-- ****************************************************************************Cabeçalho da página***************************************************************************** -->
+
+<!-- Envia o body abaixo para a pagina principal (Layout.ejs) --> 
+<%- contentFor('body') %>
+<body onload="CepOnLoad();">
+    <div class="nav-wrapper" style="background: #0B274F;">
+        <div id="loginName"><b>Olá</b></div>
+        <div class="brand-logo center" style="padding: 0.5%; margin-left: 5.5%; color: whitesmoke; font-size: 130%" ><b>Controle de Envio de Pedidos</b> 
+            <div class="logoSimbolo"><b>®</b></div>
+            <div class="logoMeitech" style="font-size: 100%"><b>CEP</b></div>
+        </div>
+    </div>
+    <!-- **************************************************************************************************************************************************************************** -->
+
+
+    
+    
+    <div id="listboxCEP">
+        <label id="lblInfoPedidos";>Pedidos com data de entrega próxima<br></label>
+        <ul id="lstCEPNumeroPedido" tabindex="0" role="listbox"></ul>
+        <ul id="lstCEPDataPrevista" tabindex="0" role="listbox"></ul>
+    </div>
+    <div id="title_warnig">AVISO!</div>
+    <button id="WarningsOK" name="btnWarningsOK" onclick="CloseWarningScreen();">Fechar</button>
+
+    <div class="dropup">
+        <div id="dropbtn" alt="Submit"></div>
+        <div class="dropup-content">
+            <a onclick="LoginOptions('Perfil');">Perfil</a>
+            <a onclick="LoginOptions('ChangePassword');">Alterar a Senha</a>
+            <b style="color: #4d4f52">&nbsp&nbsp___________________</b>
+            <a onclick="LoginOptions('Logout');">Sair</a>
+        </div>
+    </div>
+
+    <div id="icons">
+        <div id="iconFornecedor" style="width: 100%; height:7%; margin-top: 60%;">
+            <img src="" id="imgFornecedor" onclick="ClearField('Fornecedor')">
+        </div>
+        <div id="iconNumeroPedido" style="width: 100%; height:7%; margin-top: 28%;">
+            <img src="" id="imgNumeroPedido" onclick="ClearField('NumeroPedido')">
+        </div>
+        <div id="iconDataEnvio" style="width: 100%; height:7%; margin-top: 29%;">
+            <img src="" id="imgDataEnvio" onclick="ClearField('DataEnvio')">
+        </div>
+        <div id="iconDataPrevistaEntrega" style="width: 100%; height:7%; margin-top: 29%;">
+            <img src="" id="imgDataPrevistaEntrega" onclick="ClearField('DataPrevistaEntrega')">
+        </div>
+        <div id="iconDataRealEntrega" style="width: 100%; height:7%; margin-top: 29%;">
+            <img src="" id="imgDataRealEntrega" onclick="ClearField('DataRealEntrega')">
+        </div>
+        <div id="iconInformacaoAdicional" style="width: 100%; height:7%; margin-top: 29%;">
+            <img src="" id="imgInformacaoAdicional" onclick="ClearField('InformacaoAdicional')">
+        </div>
+    </div>   
+
+    <div id="title_sheet_control">CEP - </div>
+    <div id="cep_sheet_control">
+        <div id="ItensTitles">
+            <div class="lblEquipmentData" style="padding-top: 2.5%;">&nbspFornecedor</div>
+            <div class="lblEquipmentData" style="padding-top: 2.5%;">&nbspNúmero do Pedido</div>
+            <div class="lblEquipmentData" style="padding-top: 2.5%;">&nbspData de Envio</div>
+            <div class="lblEquipmentData" style="padding-top: 2.5%;">&nbspData Prevista Entrega</div>
+            <div class="lblEquipmentData" style="padding-top: 2.5%;">&nbspData Real da Entrega</div>
+            <div class="lblItemAddContent" style="padding-top: 2.5%;">&nbspInformações Adicionais</div>
+        </div>
+        <div id="ItensContents">
+            <input type="text" id="Fornecedor" class="txtItemContent" name="txtFornecedor" style="background-color: rgb(207, 207, 207)">
+            <input type="text" id="NumeroPedido" class="txtItemContent" name="txtNumeroPedido">
+            <input type="date" id="DataEnvio" class="txtItemContent" name="txtDataEnvio" style="padding-left: 15%; background-color: rgb(207, 207, 207)">
+            <input type="date" id="DataPrevistaEntrega" class="txtItemContent" name="txtDataPrevistaEntrega" style="padding-left: 15%;">
+            <input type="date" id="DataRealEntrega" class="txtItemContent" name="txtDataRealEntrega" style="padding-left: 15%; background-color: rgb(207, 207, 207)">
+            <textarea type="text" id="InformacaoAdicional" class="txtItemAddContent" name="txtInformacaoAdicional" style="background-color: rgb(207, 207, 207)"></textarea>
+        </div>   
+    </div>
+
+    <button id="SaveAndSend" name="btnSaveAndSend" onclick="CheckAndSendData();">Salvar e Enviar!</button>
+
+    <div id="buttonsCEP">
+        <button id="NewCEP" class="buttonsClass" name="btnNewCEP" onclick="DisableFieldsControl(false);">Novo</button>
+        <button id="ClearAll" class="buttonsClass" name="btnClearAll" onclick="ClearFieldsControl();">Limpar</button>
+        <button id="CancellCEP" class="buttonsClass" name="btnCancellCEP" onclick="CancelOperation();">Cancelar</button>
+        <button id="SeeAll" class="buttonsClass" name="btnSeeAll" onclick="GoToReports();">Ver Todos</button>
+    </div>
+</body>
+<footer>
+    <div class="dvRodape">
+        <div class="copyright"> Copyright © 2019 CEP System - Todos os direitos reservados</div>
+    </div>
+</footer>

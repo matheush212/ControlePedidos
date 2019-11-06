@@ -1,0 +1,19 @@
+{
+    "name": "MeitechI2000",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Meitech",
+    "license": "ISC",
+    "dependencies": {
+        "async": "^2.6.2",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-ejs-layouts": "^2.5.0",
+        "fs": "0.0.1-security",
+        "mssql": "^5.0.3",
+        "nocache": "^2.1.0",
+        "sqlite3": "^4.1.0"
+    }
+}

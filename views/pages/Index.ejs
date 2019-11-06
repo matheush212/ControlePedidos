@@ -1,0 +1,23 @@
+<!-- ****************************************************************************Cabeçalho da página***************************************************************************** -->
+
+<!-- Envia o body abaixo para a pagina principal (Layout.ejs) --> 
+<%- contentFor('body') %>
+<body onload="LoginOnLoad();">
+    <div class="nav-wrapper" style="background: #0B274F;">
+        <div class="brand-logo center" style="padding: 0.5%; margin-left: 5.5%; color: whitesmoke; font-size: 130%" ><b>Controle de Envio de Pedidos</b>
+            <div class="logoSimbolo"><b>®</b></div>
+            <div class="logoMeitech" style="font-size: 100%"><b>CEP</b></div>
+        </div>
+    </div>
+    <!-- **************************************************************************************************************************************************************************** -->
+    <div id="login">
+        <input id="userLogin" type="text" placeholder="Usuário">
+        <input id="userPassword" type="password" placeholder="Senha">
+        <button id="submit" onclick="SystemLogin();">Login!</button>
+    </div>
+</body>
+<footer>
+    <div class="dvRodape">
+        <div class="copyright"> Copyright © 2019 CEP System - Todos os direitos reservados</div>
+    </div>
+</footer>

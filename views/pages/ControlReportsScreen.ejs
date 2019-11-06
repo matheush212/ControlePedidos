@@ -1,0 +1,70 @@
+<!-- ****************************************************************************Cabeçalho da página***************************************************************************** -->
+
+<!-- Envia o body abaixo para a pagina principal (Layout.ejs) --> 
+<%- contentFor('body') %>
+<body onload="ReportsScreenOnLoad();">
+    <div class="nav-wrapper" style="background: #0B274F;">
+        <div id="loginName"><b>Olá</b></div>
+        <div class="brand-logo center" style="padding: 0.5%; margin-left: 2%; color: whitesmoke; font-size: 130%" ><b>Relatórios de Controle - CEP</b>
+            <div class="logoSimbolo"><b>®</b></div>
+            <div class="logoMeitech" style="font-size: 100%"><b>CEP</b></div>
+        </div>
+    </div>
+    <!-- **************************************************************************************************************************************************************************** -->
+
+    <div class="dropup">
+        <div id="dropbtn" alt="Submit"></div>
+        <div class="dropup-content">
+            <a onclick="LoginOptions('Perfil');">Perfil</a>
+            <a onclick="LoginOptions('ChangePassword');">Alterar a Senha</a>
+            <b style="color: #4d4f52">&nbsp&nbsp___________________</b>
+            <a onclick="LoginOptions('Logout');">Sair</a>
+        </div>
+    </div>
+
+    <img onclick="PrintPage()" class="imgPrint" src="img/PrintIcon.png">
+
+    <div id="dvFiltrarPor">
+        <div id="dvCbxFiltrarPor">
+            <label id="lblFiltrarPor">Filtrar Por:&nbsp</label>
+            <select id="FiltrarPor" class="comboBoxFiltrarPor" name="cbxFiltrarPor" onchange="cbxFiltrarPorChange();">
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" selected value="1">Geral</option>
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="2">Data de criação</option>               
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="3">Fornecedor</option>
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="4">Nº Pedido</option>
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="5">Data de Envio</option>
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="6">Data Prevista</option> 
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="7">Data de Entrega</option>
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="8">Criador do CEP</option>   
+                <option style="font-size: 110%; font-weight: bold; color: #0B274F" value="9">Status de Entrega</option>                                                                                 
+            </select>
+        </div>
+        
+
+        <div id="dvFiltroGeral">
+            <input id="FiltroGeral" class="textBoxFiltroGeral" name="txtFiltroGeral" placeholder="Digite aqui para filtrar...">
+        </div>
+
+        <div id="dvFiltroData">
+            <label id="lblFiltroDataDe">Data De:&nbsp</label>
+            <input type="date" id="DataFiltroDe" class="textBoxDataFiltroDe" name="txtDataFiltroDe" value="">
+            
+            <label id="lblFiltroDataAte">Data Até:&nbsp</label>
+            <input type="date" id="DataFiltroAte" class="textBoxDataFiltroAte" name="txtDataFiltroAte" value="">
+        </div>
+    </div>
+
+    
+
+    <div id="table-scroll-CEP">
+        <table id="tbCEP" border="1"></table>
+    </div>
+
+    <button id="BackReportsButton" name="btnBackReports" onclick="BackReports();">Voltar</button>
+
+</body>
+<footer>
+    <div class="dvRodape">
+        <div class="copyright"> Copyright © 2019 CEP System - Todos os direitos reservados</div>
+    </div>
+</footer>
