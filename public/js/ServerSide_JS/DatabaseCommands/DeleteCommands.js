@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 
 async function RemoveCEP(numeroPedido, res, dirname){
-    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
     try{
         db.run(`DELETE FROM CEP WHERE NumeroPedido = ?`, numeroPedido, function(err) {
             if (err) {

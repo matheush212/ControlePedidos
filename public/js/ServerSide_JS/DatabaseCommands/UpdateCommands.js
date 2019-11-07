@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
  
 async function ChangeLogin(userId, userLogin, res, dirname){
   const sqlite3 = require('sqlite3').verbose();
-  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
   try{
       let sql = "UPDATE Usuario SET Login = '" + userLogin + "' WHERE Id = '" + userId + "'";
       
@@ -31,7 +31,7 @@ exports.ChangeLogin = ChangeLogin;
 function CheckOldPassword(userId, oldPassword, newPassword, res, dirname){
   try{
     const sqlite3 = require('sqlite3').verbose();
-    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
 
     let sql = "SELECT Senha senha FROM Usuario WHERE Id = '" + userId + "'";
 
@@ -81,7 +81,7 @@ async function EncryptNewPassword(userId, newPassword, res, dirname){
 
 async function ChangePasswordInDB(userId, EncryptedPassword, res, dirname){
   const sqlite3 = require('sqlite3').verbose();
-  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
   try{
       let sql = "UPDATE Usuario SET Senha = '" + EncryptedPassword + "' WHERE Id = '" + userId + "'";
       
@@ -107,7 +107,7 @@ async function ChangePasswordInDB(userId, EncryptedPassword, res, dirname){
 
 async function CheckNumeroPedidoEdit(dados, numeroPedido, res, dirname){
   const sqlite3 = require('sqlite3').verbose();
-  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
   try{
       let sql = "SELECT ID id FROM CEP WHERE NumeroPedido = " + dados[1];
       
@@ -148,7 +148,7 @@ exports.CheckNumeroPedidoEdit = CheckNumeroPedidoEdit;
 async function UpdateCEP(dados, numeroPedido, res, dirname){
   try{
     const sqlite3 = require('sqlite3').verbose();
-    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
     let sql = "";
 
       if(dados[4] == null){
@@ -186,7 +186,7 @@ async function UpdateCEP(dados, numeroPedido, res, dirname){
 async function UpdateStatusEntrega(numeroPedido, status, res, dirname){
   try{
     const sqlite3 = require('sqlite3').verbose();
-      let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+      let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
       let sql = "UPDATE CEP SET StatusEntrega = '" + status + "' WHERE NumeroPedido IN ("+ numeroPedido +")";
       db.run(sql, function(err) {
         if (err) {

@@ -13,7 +13,7 @@ exports.EncryptPassword = EncryptPassword;
   
 async function SaveDataUsers(name, login, encryptpassword, res, dirname){
   try{
-    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
     db.run(`INSERT INTO Usuario(Nome, Login, Senha) VALUES(?, ?, ?)`, [name, login, encryptpassword], function(err) {
       if (err) {
         return console.log(err.message);
@@ -37,7 +37,7 @@ async function SaveDataUsers(name, login, encryptpassword, res, dirname){
 
 async function CheckNumeroPedido(arrInsert, res, dirname){
   try{
-    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+    let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
     let sql ="SELECT ID FROM CEP WHERE NumeroPedido = " + arrInsert[1]; 
    
     db.get(sql, (err, row) => {
@@ -68,7 +68,7 @@ exports.CheckNumeroPedido = CheckNumeroPedido;
 
 
 async function InsertCEP(arrInsert, res, dirname){
-  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+  let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
   let sql = "";
   try{
       if(arrInsert[4] == null){

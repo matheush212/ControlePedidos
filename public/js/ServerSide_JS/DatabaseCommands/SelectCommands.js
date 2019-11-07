@@ -9,7 +9,7 @@ async function CheckLogin(login, password, res, dirname){
         var IdUsuario = "";
         var LoginOk = false;
 
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql = "SELECT Id id, Nome nome, Login login, Senha senha FROM Usuario WHERE Login = '" + login + "'";
 
         db.get(sql, (err, row) => {
@@ -47,7 +47,7 @@ exports.CheckLogin = CheckLogin;
 
 async function SelectAllCEP(res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario)"; 
        
@@ -78,7 +78,7 @@ exports.SelectAllCEP = SelectAllCEP;
 
 async function SelectByDate(DataDe, DataAte, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.Data >= '" + DataDe + "' AND CEP.Data <= '" + DataAte + "'"; 
        
@@ -110,7 +110,7 @@ exports.SelectByDate = SelectByDate;
 
 async function SelectByFornecedor(Geral, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.Fornecedor LIKE '" + Geral + "%'"; 
        
@@ -141,7 +141,7 @@ exports.SelectByFornecedor = SelectByFornecedor;
 
 async function SelectByNumeroPedido(Geral, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.NumeroPedido LIKE '" + Geral + "%'"; 
        
@@ -172,7 +172,7 @@ exports.SelectByNumeroPedido = SelectByNumeroPedido;
 
 async function SelectByDataEnvio(DataDe, DataAte, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.DataEnvio >= '" + DataDe + "' AND CEP.DataEnvio <= '" + DataAte + "'"; 
        
@@ -202,7 +202,7 @@ exports.SelectByDataEnvio = SelectByDataEnvio;
 
 async function SelectByDataPrevista(DataDe, DataAte, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.DataPrevistaEntrega >= '" + DataDe + "' AND CEP.DataPrevistaEntrega <= '" + DataAte + "'"; 
        
@@ -233,7 +233,7 @@ exports.SelectByDataPrevista = SelectByDataPrevista;
 async function SelectByDataEntrega(DataDe, DataAte, res, dirname){
     try{
         console.log(DataDe);
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.DataRealEntrega >= '" + DataDe + "' AND CEP.DataRealEntrega <= '" + DataAte + "'"; 
        
@@ -263,7 +263,7 @@ exports.SelectByDataEntrega = SelectByDataEntrega;
 
 async function SelectByUserName(Geral, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE Usuario.Nome LIKE '" + Geral + "%'"; 
        
@@ -293,7 +293,7 @@ exports.SelectByUserName = SelectByUserName;
 
 async function SelectCEPByNumeroPedido(numeroPedido, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.ID, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.NumeroPedido = '" + numeroPedido + "'"; 
        
@@ -323,7 +323,7 @@ exports.SelectCEPByNumeroPedido = SelectCEPByNumeroPedido;
 
 async function SelectByStatus(statusEntrega, res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT CEP.*, Usuario.ID, Usuario.Nome FROM CEP "+
         "INNER JOIN Usuario ON (Usuario.Id = CEP.IdUsuario) WHERE CEP.StatusEntrega LIKE '" + statusEntrega + "%'"; 
        
@@ -353,7 +353,7 @@ exports.SelectByStatus = SelectByStatus;
 
 async function SelectPedidosProximos(res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT NumeroPedido, DataPrevistaEntrega FROM CEP WHERE StatusEntrega = 'Chegando'"; 
        
         db.all(sql, [], (err, row) => {
@@ -382,7 +382,7 @@ exports.SelectPedidosProximos = SelectPedidosProximos;
 
 async function SelectAllCEPFields(res, dirname){
     try{
-        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\Sistema_CEP\\db\\CEP.db');
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
         let sql ="SELECT NumeroPedido, DataPrevistaEntrega, StatusEntrega FROM CEP"; 
        
         db.all(sql, [], (err, row) => {
