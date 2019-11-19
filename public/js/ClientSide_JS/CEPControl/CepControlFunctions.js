@@ -12,6 +12,7 @@ var dtRealEntregaCEPIsNull = false;
 var UpdateStatusChegando = [];
 var UpdateStatusAtrasado = [];
 var dataAtual = "";
+var AbreTelaPedidosProximos = true;
 
 
 
@@ -40,6 +41,15 @@ async function LoadWarningsPage(Result){
     document.getElementById("cep_sheet_control").style.visibility = "hidden";
     document.getElementById("buttonsCEP").style.visibility = "hidden";
     document.getElementById("SaveAndSend").style.visibility = "hidden";
+
+    if(AbreTelaPedidosProximos){
+        document.getElementById("lblInfoPedidos").textContent = "Pedidos com data de entrega próxima";
+        AbreTelaPedidosProximos = false;
+    }
+    else{
+        document.getElementById("lblInfoPedidos").textContent = "Pedidos com data de entrega atrasada";
+        AbreTelaPedidosProximos = true;
+    }
     
     var label = document.createElement("li");
     var label2 = document.createElement("li");
@@ -290,15 +300,40 @@ async function ConvertDateCEP(data){
 
 
 async function CloseWarningScreen(){
-    document.getElementById("icons").style.visibility = "visible";
-    document.getElementById("title_sheet_control").style.visibility = "visible";
-    document.getElementById("cep_sheet_control").style.visibility = "visible";
-    document.getElementById("buttonsCEP").style.visibility = "visible";
-    document.getElementById("SaveAndSend").style.visibility = "visible";
-    document.getElementById("listboxCEP").style.visibility = "hidden";
-    document.getElementById("WarningsOK").style.visibility = "hidden";
-    document.getElementById("title_warnig").style.visibility = "hidden";
-    localStorage.setItem("OpenWarningScreen", "false");
+    if(!AbreTelaPedidosProximos){
+
+        while (document.getElementById("lstCEPNumeroPedido").hasChildNodes()) {
+            document.getElementById("lstCEPNumeroPedido").removeChild(document.getElementById("lstCEPNumeroPedido").lastChild);
+        }
+
+        while (document.getElementById("lstCEPDataPrevista").hasChildNodes()) {
+            document.getElementById("lstCEPDataPrevista").removeChild(document.getElementById("lstCEPDataPrevista").lastChild);
+        }
+
+        document.getElementById("icons").style.visibility = "hidden";
+        document.getElementById("title_sheet_control").style.visibility = "hidden";
+        document.getElementById("cep_sheet_control").style.visibility = "hidden";
+        document.getElementById("buttonsCEP").style.visibility = "hidden";
+        document.getElementById("SaveAndSend").style.visibility = "hidden";
+        document.getElementById("listboxCEP").style.visibility = "visible";
+        document.getElementById("WarningsOK").style.visibility = "visible";
+        document.getElementById("title_warnig").style.visibility = "visible";
+        setTimeout(async function(){
+            await CEPControlSendToServer("SelectPedidosAtrasados" , null);
+            return;
+        }, 100);
+    }
+    else{
+        document.getElementById("icons").style.visibility = "visible";
+        document.getElementById("title_sheet_control").style.visibility = "visible";
+        document.getElementById("cep_sheet_control").style.visibility = "visible";
+        document.getElementById("buttonsCEP").style.visibility = "visible";
+        document.getElementById("SaveAndSend").style.visibility = "visible";
+        document.getElementById("listboxCEP").style.visibility = "hidden";
+        document.getElementById("WarningsOK").style.visibility = "hidden";
+        document.getElementById("title_warnig").style.visibility = "hidden";
+        localStorage.setItem("OpenWarningScreen", "false");
+    }
 }
 
 
@@ -329,7 +364,7 @@ async function UpdateStatusOfAllCep(Result){
     
     setTimeout(async function(){
         await CEPControlSendToServer("SelectPedidosProximos" , null);
-    }, 50);
+    }, 100);
 }
 
 
@@ -361,7 +396,7 @@ async function CEPControlSendToServer(command, arrCEP){
                     await ClearFieldsCEP();
                     await DisableFieldsControl(true);
                 }
-                else if(FunctionName == "SelectPedidosProximos"){
+                else if(FunctionName == "SelectPedidosProximos" || FunctionName == "SelectPedidosAtrasados"){
                     var resResult = JSON.stringify(res.body.Result); 
                     var Result = JSON.parse(resResult); 
                     await LoadWarningsPage(Result);

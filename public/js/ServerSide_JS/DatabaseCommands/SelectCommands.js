@@ -380,6 +380,35 @@ exports.SelectPedidosProximos = SelectPedidosProximos;
 
 
 
+async function SelectPedidosAtrasados(res, dirname){
+    try{
+        let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');
+        let sql ="SELECT NumeroPedido, DataPrevistaEntrega FROM CEP WHERE StatusEntrega = 'Atrasado'"; 
+       
+        db.all(sql, [], (err, row) => {
+            if (err) {
+                throw err;
+            }
+            var resultSelect = row;
+
+            var SQLJasonResult = {
+                Result : resultSelect,
+                Function : "SelectPedidosAtrasados"
+            };
+        
+            db.close();
+            res.send(SQLJasonResult);
+            res.end();
+        }); 
+    }
+    catch(err){
+      console.log("SelectPedidosAtrasados" + " - " + err.message);
+    }
+}
+exports.SelectPedidosAtrasados = SelectPedidosAtrasados;
+
+
+
 async function SelectAllCEPFields(res, dirname){
     try{
         let db = new sqlite3.Database('C:\\Users\\mhenr\\Desktop\\CEP_Projeto_Catolica\\ControlePedidos\\db\\CEP.db');

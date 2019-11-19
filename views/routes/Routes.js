@@ -78,11 +78,12 @@ async function PostRoute(dirname, app) {
         await SelectCommands.SelectAllCEPFields(res, dirname)
       else if(Command == "UpdateStatusAtrasado")
         await UpdateCommands.UpdateStatusEntrega(req.body.arrInsert, "Atrasado", res, dirname);
-      else if(Command == "UpdateStatusChegando"){
+      else if(Command == "UpdateStatusChegando")
         await UpdateCommands.UpdateStatusEntrega(req.body.arrInsert, "Chegando", res, dirname);
-      }
-      else
+      else if(Command == "SelectPedidosProximos")
         await SelectCommands.SelectPedidosProximos(res, dirname);
+      else if(Command == "SelectPedidosAtrasados")
+        await SelectCommands.SelectPedidosAtrasados(res, dirname);
     });
 
     app.post('/ChangePassword', async function(req, res){
